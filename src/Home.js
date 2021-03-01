@@ -14,7 +14,6 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import themeImage from './theme1.jpg';
 import Bloglist from './Bloglist';
-import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -94,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Home = () => {
+const Home = (props) => {
 
   const classes = useStyles();
   const [blogData, setBlogData] = useState([]);
@@ -102,12 +101,9 @@ const Home = () => {
   const [articlesFound, setArticlesFound] = useState(true);
 
   useEffect(() => {
-    axios.get(`https://api.theinnerhour.com/v1/bloglisting`)
-      .then(res => {
-        setBlogData(res.data.list);
-        setFilteredBlogData(res.data.list);
-      })
-  },[])
+    setBlogData(props.state);
+    setFilteredBlogData(props.state)
+  }, [props.state])
 
   const handleSearchBar = (e) => {
       const filteredList = blogData.filter(blog => {

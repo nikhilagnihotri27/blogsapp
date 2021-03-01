@@ -34,14 +34,7 @@ const GetBlogs = (blogData) => {
     blogData.forEach(blog => {
         blogs.push(
             <Grid item xs={12} sm={6} md={4} key={blog._id}>
-                <Link to={{
-                    pathname: `/${blog._id}`,
-                    title : blog.title,
-                    body : blog.body,
-                    img : blog.thumb,
-                    cover : blog.cover,
-                    description : blog.metadescription
-                }}>      
+                <Link to={{ pathname: `/${blog._id}`, }}>      
                     <Card className={classes.card} id={blog._id} >
                         <CardActionArea>
                             <CardMedia

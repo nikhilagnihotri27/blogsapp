@@ -14,7 +14,6 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const Blogview = (props) => {
 
-
   const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
@@ -82,6 +81,8 @@ const Blogview = (props) => {
 
   const classes = useStyles();
 
+  console.log("Props : ", props)
+
   return (
     <>
       <AppBar position="static">
@@ -115,9 +116,9 @@ const Blogview = (props) => {
       </AppBar>
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
-          {props.location.title}
+          {props.state.title}
         </Typography>
-        <Typography variant="body1" className={classes.inputInput} dangerouslySetInnerHTML={{ __html: props.location.body}}>
+        <Typography variant="body1" className={classes.inputInput} dangerouslySetInnerHTML={{ __html: props.state.body}}>
         </Typography>
       </Container>
     </>
